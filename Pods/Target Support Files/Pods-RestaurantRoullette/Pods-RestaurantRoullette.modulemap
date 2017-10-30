@@ -1,0 +1,6 @@
+framework module Pods_RestaurantRoullette {
+  umbrella header "Pods-RestaurantRoullette-umbrella.h"
+
+  export *
+  module * { export * }
+}

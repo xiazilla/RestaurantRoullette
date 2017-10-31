@@ -12,6 +12,7 @@
 		830DB6F11FA7B77300B19899 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830DB6F01FA7B77300B19899 /* LoginViewController.swift */; };
 		830DB6F31FA8026400B19899 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830DB6F21FA8026400B19899 /* HomeViewController.swift */; };
 		831A498E1FA90D2B005AF481 /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831A498D1FA90D2B005AF481 /* MoneyViewController.swift */; };
+		831A49901FA9232A005AF481 /* DistanceThresholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831A498F1FA9232A005AF481 /* DistanceThresholdViewController.swift */; };
 		9AB92ACBE83F36A99463F56C /* Pods_RestaurantRoullette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5955302D996D01058674EB /* Pods_RestaurantRoullette.framework */; };
 		CB7DB5771FA55911009061E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB5761FA55911009061E2 /* AppDelegate.swift */; };
 		CB7DB5791FA55911009061E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB5781FA55911009061E2 /* ViewController.swift */; };
@@ -22,7 +23,6 @@
 		CB7DB58E1FA8171F009061E2 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7DB58D1FA8171F009061E2 /* Logo.png */; };
 		CB7DB5901FA81EDB009061E2 /* FoodCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB58F1FA81EDB009061E2 /* FoodCategoryViewController.swift */; };
 		CB7DB5921FA84631009061E2 /* PriceThresholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB5911FA84631009061E2 /* PriceThresholdViewController.swift */; };
-		CB7DB5961FA85BC0009061E2 /* RatingThresholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB5951FA85BC0009061E2 /* RatingThresholdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +33,7 @@
 		830DB6F01FA7B77300B19899 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		830DB6F21FA8026400B19899 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		831A498D1FA90D2B005AF481 /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
+		831A498F1FA9232A005AF481 /* DistanceThresholdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceThresholdViewController.swift; sourceTree = "<group>"; };
 		CB7DB5731FA55911009061E2 /* RestaurantRoullette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantRoullette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7DB5761FA55911009061E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB7DB5781FA55911009061E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +45,6 @@
 		CB7DB58D1FA8171F009061E2 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = ../../../../Desktop/Logo.png; sourceTree = "<group>"; };
 		CB7DB58F1FA81EDB009061E2 /* FoodCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryViewController.swift; sourceTree = "<group>"; };
 		CB7DB5911FA84631009061E2 /* PriceThresholdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceThresholdViewController.swift; sourceTree = "<group>"; };
-		CB7DB5951FA85BC0009061E2 /* RatingThresholdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingThresholdViewController.swift; sourceTree = "<group>"; };
 		DA5955302D996D01058674EB /* Pods_RestaurantRoullette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoullette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +106,7 @@
 				CB7DB58D1FA8171F009061E2 /* Logo.png */,
 				830DB6F21FA8026400B19899 /* HomeViewController.swift */,
 				CB7DB5911FA84631009061E2 /* PriceThresholdViewController.swift */,
+				831A498F1FA9232A005AF481 /* DistanceThresholdViewController.swift */,
 				830DB6F01FA7B77300B19899 /* LoginViewController.swift */,
 				830DB6ED1FA7AE9800B19899 /* AccountCreationViewController.swift */,
 				CB7DB5801FA55911009061E2 /* Assets.xcassets */,
@@ -113,7 +114,6 @@
 				CB7DB5851FA55911009061E2 /* Info.plist */,
 				CB7DB57D1FA55911009061E2 /* RestaurantRoullette.xcdatamodeld */,
 				830DB6EC1FA7A59A00B19899 /* GoogleService-Info.plist */,
-				CB7DB5951FA85BC0009061E2 /* RatingThresholdViewController.swift */,
 			);
 			path = RestaurantRoullette;
 			sourceTree = "<group>";
@@ -255,12 +255,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB7DB5961FA85BC0009061E2 /* RatingThresholdViewController.swift in Sources */,
 				CB7DB5791FA55911009061E2 /* ViewController.swift in Sources */,
 				CB7DB57F1FA55911009061E2 /* RestaurantRoullette.xcdatamodeld in Sources */,
 				831A498E1FA90D2B005AF481 /* MoneyViewController.swift in Sources */,
 				CB7DB5771FA55911009061E2 /* AppDelegate.swift in Sources */,
 				830DB6F11FA7B77300B19899 /* LoginViewController.swift in Sources */,
+				831A49901FA9232A005AF481 /* DistanceThresholdViewController.swift in Sources */,
 				CB7DB5921FA84631009061E2 /* PriceThresholdViewController.swift in Sources */,
 				830DB6EE1FA7AE9800B19899 /* AccountCreationViewController.swift in Sources */,
 				CB7DB5901FA81EDB009061E2 /* FoodCategoryViewController.swift in Sources */,

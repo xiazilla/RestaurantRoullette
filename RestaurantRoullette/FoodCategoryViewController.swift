@@ -14,9 +14,6 @@ class FoodCategoryViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var dropDown: UIPickerView!
     
     var data = [String] ( repeating: "", count: 5 );
-    
-    
-    
     var genres = ["Surprise Me! I Can't Decide.", "American", "Chinese", "Indian", "Japanese", "Mediterrean", "Korean", "Tex-Mex"]
     
 

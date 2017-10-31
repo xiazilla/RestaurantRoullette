@@ -89,7 +89,7 @@ class PriceThresholdViewController: UIViewController, UIPickerViewDelegate, UIPi
         navigationItem.backBarButtonItem = backItem;
         
         if segue.identifier == "saveRatings" {
-            if let toViewController = segue.destination as? RatingThresholdViewController {
+            if let toViewController = segue.destination as? MoneyViewController {
                 toViewController.data = self.data;
             }
             

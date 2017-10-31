@@ -1,20 +1,20 @@
 //
-//  RatingThresholdViewController.swift
+//  DistanceThresholdViewController.swift
 //  RestaurantRoullette
 //
-//  Created by Jamie Xia on 10/31/17.
+//  Created by Derek Chang on 10/31/17.
 //  Copyright © 2017 cs378. All rights reserved.
 //
 
 import UIKit
 
-class RatingThresholdViewController: UIViewController {
-
-    var data = [String] (repeating: "", count: 5 );
+class DistanceThresholdViewController: UIViewController {
     
+    var data = [String] ( repeating: "", count: 4 );
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(data);
+
         // Do any additional setup after loading the view.
     }
 

@@ -11,6 +11,7 @@
 		830DB6EF1FA7B56E00B19899 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 830DB6EC1FA7A59A00B19899 /* GoogleService-Info.plist */; };
 		830DB6F11FA7B77300B19899 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830DB6F01FA7B77300B19899 /* LoginViewController.swift */; };
 		830DB6F31FA8026400B19899 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830DB6F21FA8026400B19899 /* HomeViewController.swift */; };
+		831A498E1FA90D2B005AF481 /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831A498D1FA90D2B005AF481 /* MoneyViewController.swift */; };
 		9AB92ACBE83F36A99463F56C /* Pods_RestaurantRoullette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5955302D996D01058674EB /* Pods_RestaurantRoullette.framework */; };
 		CB7DB5771FA55911009061E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB5761FA55911009061E2 /* AppDelegate.swift */; };
 		CB7DB5791FA55911009061E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB5781FA55911009061E2 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		830DB6ED1FA7AE9800B19899 /* AccountCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationViewController.swift; sourceTree = "<group>"; };
 		830DB6F01FA7B77300B19899 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		830DB6F21FA8026400B19899 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		831A498D1FA90D2B005AF481 /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
 		CB7DB5731FA55911009061E2 /* RestaurantRoullette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantRoullette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7DB5761FA55911009061E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB7DB5781FA55911009061E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				CB7DB5761FA55911009061E2 /* AppDelegate.swift */,
 				CB7DB5781FA55911009061E2 /* ViewController.swift */,
 				CB7DB57A1FA55911009061E2 /* Main.storyboard */,
+				831A498D1FA90D2B005AF481 /* MoneyViewController.swift */,
 				CB7DB58F1FA81EDB009061E2 /* FoodCategoryViewController.swift */,
 				CB7DB58D1FA8171F009061E2 /* Logo.png */,
 				830DB6F21FA8026400B19899 /* HomeViewController.swift */,
@@ -255,6 +258,7 @@
 				CB7DB5961FA85BC0009061E2 /* RatingThresholdViewController.swift in Sources */,
 				CB7DB5791FA55911009061E2 /* ViewController.swift in Sources */,
 				CB7DB57F1FA55911009061E2 /* RestaurantRoullette.xcdatamodeld in Sources */,
+				831A498E1FA90D2B005AF481 /* MoneyViewController.swift in Sources */,
 				CB7DB5771FA55911009061E2 /* AppDelegate.swift in Sources */,
 				830DB6F11FA7B77300B19899 /* LoginViewController.swift in Sources */,
 				CB7DB5921FA84631009061E2 /* PriceThresholdViewController.swift in Sources */,

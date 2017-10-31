@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qan-3C-Wlt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8zd-Ig-csn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -165,7 +165,7 @@
         <!--Navigation Controller-->
         <scene sceneID="tY8-aw-NOa">
             <objects>
-                <navigationController id="8zd-Ig-csn" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Home" id="8zd-Ig-csn" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K2V-kY-hr6">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -181,66 +181,54 @@
         <!--Restaurant Roulette-->
         <scene sceneID="PZ8-uf-wOi">
             <objects>
-                <viewController storyboardIdentifier="Home" id="gP4-mO-LDB" customClass="HomeViewController" customModule="RestaurantRoullette" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gP4-mO-LDB" customClass="HomeViewController" customModule="RestaurantRoullette" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Home" id="Czm-Fd-rny">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9d-ke-Czc">
-                                <rect key="frame" x="157" y="229" width="50" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="mYk-YJ-es9">
+                                <rect key="frame" x="67" y="160" width="240" height="231"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-VS-OBe">
-                                <rect key="frame" x="16" y="79" width="48" height="30"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjj-lP-Hbg">
+                                <rect key="frame" x="128" y="460" width="119" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="I'm Feeling Lucky"/>
                                 <connections>
-                                    <action selector="logoutButton:" destination="gP4-mO-LDB" eventType="touchUpInside" id="tSw-gy-bOe"/>
+                                    <segue destination="NSz-6m-Jwh" kind="show" id="sEd-69-aVh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4B-il-4Cq">
+                                <rect key="frame" x="140" y="527" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Refine Search"/>
+                                <connections>
+                                    <segue destination="IAG-U7-6ms" kind="show" id="WGx-1D-jUy"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="SgL-OH-dPp"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Restaurant Roulette" id="hIt-eb-6xm"/>
+                    <navigationItem key="navigationItem" title="Restaurant Roulette" id="hIt-eb-6xm">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="H52-mQ-Kl9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q6M-VS-OBe">
+                                <rect key="frame" x="311" y="7" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButton:" destination="gP4-mO-LDB" eventType="touchUpInside" id="tSw-gy-bOe"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="logoutLabel" destination="q6M-VS-OBe" id="67V-Ik-dOe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkl-10-Pop" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2444" y="18"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Qwe-XN-3fh">
-            <objects>
-                <tableViewController id="Dia-dX-yt1" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8QE-XM-YTi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0x6-wa-0v2">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0x6-wa-0v2" id="bzB-sJ-Qu3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Dia-dX-yt1" id="XQD-fo-JEl"/>
-                            <outlet property="delegate" destination="Dia-dX-yt1" id="whl-lQ-M2Y"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rXx-ai-ath" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3294" y="18"/>
+            <point key="canvasLocation" x="2444" y="17.541229385307346"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="M1f-8H-o81">
@@ -255,22 +243,166 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NzO-Xs-bkr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3252" y="-728"/>
+            <point key="canvasLocation" x="3337" y="-391"/>
         </scene>
-        <!--View Controller-->
+        <!--What Kind Of Food?-->
         <scene sceneID="nR8-Z9-noH">
             <objects>
-                <viewController id="IAG-U7-6ms" sceneMemberID="viewController">
+                <viewController title="What Kind Of Food?" id="IAG-U7-6ms" customClass="FoodCategoryViewController" customModule="RestaurantRoullette" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EEg-Jc-ewu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What category of food would you like?" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFp-9M-luJ">
+                                <rect key="frame" x="39" y="141" width="297" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W5r-ME-f2g">
+                                <rect key="frame" x="39" y="242" width="297" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="IAG-U7-6ms" id="fNo-vg-oZM"/>
+                                </connections>
+                            </textField>
+                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHf-Kn-u7m">
+                                <rect key="frame" x="39" y="269" width="297" height="223"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="IAG-U7-6ms" id="clF-C2-roK"/>
+                                    <outlet property="delegate" destination="IAG-U7-6ms" id="XLd-XK-xvw"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOq-j9-H0G">
+                                <rect key="frame" x="154" y="525" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Okay!"/>
+                                <connections>
+                                    <action selector="MoveOn:" destination="IAG-U7-6ms" eventType="touchUpInside" id="NzO-MH-4Bt"/>
+                                    <segue destination="Icu-Q1-kb5" kind="show" identifier="saveCategory" id="mmP-dL-fJe"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="LoJ-pp-DC5"/>
                     </view>
+                    <connections>
+                        <outlet property="TypeOfFood" destination="W5r-ME-f2g" id="Ubx-1J-ZXd"/>
+                        <outlet property="dropDown" destination="CHf-Kn-u7m" id="D66-MP-DiK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SI5-1E-1nW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3252" y="737"/>
+            <point key="canvasLocation" x="3336.8000000000002" y="339.58020989505252"/>
+        </scene>
+        <!--How Good You Wanna Eat?-->
+        <scene sceneID="FBc-ws-MsY">
+            <objects>
+                <viewController title="How Good You Wanna Eat?" id="Icu-Q1-kb5" customClass="PriceThresholdViewController" customModule="RestaurantRoullette" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NGU-id-jIJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick a maximum and minimum rating." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bN-Jq-W27">
+                                <rect key="frame" x="16" y="122" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-AV-PAj">
+                                <rect key="frame" x="77" y="299" width="220" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Icu-Q1-kb5" id="i9K-kZ-cqY"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="umb-YJ-r06">
+                                <rect key="frame" x="77" y="382" width="220" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Icu-Q1-kb5" id="AUC-JI-VnN"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Min Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzR-cs-Kda">
+                                <rect key="frame" x="147" y="276" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbH-AI-Zsf">
+                                <rect key="frame" x="145" y="359" width="86" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iez-QB-Z7X">
+                                <rect key="frame" x="0.0" y="475" width="375" height="192"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Icu-Q1-kb5" id="0hP-7N-A4i"/>
+                                    <outlet property="delegate" destination="Icu-Q1-kb5" id="WBr-ix-uja"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2j-WJ-Ebf">
+                                <rect key="frame" x="167" y="437" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Okay!"/>
+                                <connections>
+                                    <action selector="Next:" destination="Icu-Q1-kb5" eventType="touchUpInside" id="oe3-vu-6PC"/>
+                                    <segue destination="QEB-Q8-g4p" kind="show" identifier="saveRatings" id="FfM-O8-7N2"/>
+                                </connections>
+                            </button>
+                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIf-fu-RhV">
+                                <rect key="frame" x="0.0" y="475" width="375" height="192"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Icu-Q1-kb5" id="SMd-p4-FV4"/>
+                                    <outlet property="delegate" destination="Icu-Q1-kb5" id="8af-lb-lbR"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="xi3-Uk-EXW"/>
+                    </view>
+                    <connections>
+                        <outlet property="maxField" destination="umb-YJ-r06" id="JGa-6C-iSE"/>
+                        <outlet property="maxPicker" destination="bIf-fu-RhV" id="LF0-EM-3eN"/>
+                        <outlet property="minField" destination="Isa-AV-PAj" id="Brg-0a-I8D"/>
+                        <outlet property="minPicker" destination="Iez-QB-Z7X" id="lZV-WI-5mn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xbo-Tt-aqN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4168.8000000000002" y="345.87706146926541"/>
+        </scene>
+        <!--Dolla Signs-->
+        <scene sceneID="KGz-gs-2z1">
+            <objects>
+                <viewController title="Dolla Signs" id="QEB-Q8-g4p" customClass="RatingThresholdViewController" customModule="RestaurantRoullette" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cdd-sE-dMN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="8jf-6w-o0s"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AtT-2n-HkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4919" y="346"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="lrX-ow-FQz">
@@ -331,4 +463,7 @@
             <point key="canvasLocation" x="959" y="-348"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo.png" width="300" height="300"/>
+    </resources>
 </document>

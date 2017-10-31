@@ -18,6 +18,10 @@
 		CB7DB57F1FA55911009061E2 /* RestaurantRoullette.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB57D1FA55911009061E2 /* RestaurantRoullette.xcdatamodeld */; };
 		CB7DB5811FA55911009061E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB7DB5801FA55911009061E2 /* Assets.xcassets */; };
 		CB7DB5841FA55911009061E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB7DB5821FA55911009061E2 /* LaunchScreen.storyboard */; };
+		CB7DB58E1FA8171F009061E2 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7DB58D1FA8171F009061E2 /* Logo.png */; };
+		CB7DB5901FA81EDB009061E2 /* FoodCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB58F1FA81EDB009061E2 /* FoodCategoryViewController.swift */; };
+		CB7DB5921FA84631009061E2 /* PriceThresholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB5911FA84631009061E2 /* PriceThresholdViewController.swift */; };
+		CB7DB5961FA85BC0009061E2 /* RatingThresholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB5951FA85BC0009061E2 /* RatingThresholdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		CB7DB5801FA55911009061E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB7DB5831FA55911009061E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB7DB5851FA55911009061E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB7DB58D1FA8171F009061E2 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = ../../../../Desktop/Logo.png; sourceTree = "<group>"; };
+		CB7DB58F1FA81EDB009061E2 /* FoodCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryViewController.swift; sourceTree = "<group>"; };
+		CB7DB5911FA84631009061E2 /* PriceThresholdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceThresholdViewController.swift; sourceTree = "<group>"; };
+		CB7DB5951FA85BC0009061E2 /* RatingThresholdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingThresholdViewController.swift; sourceTree = "<group>"; };
 		DA5955302D996D01058674EB /* Pods_RestaurantRoullette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoullette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,7 +99,10 @@
 				CB7DB5761FA55911009061E2 /* AppDelegate.swift */,
 				CB7DB5781FA55911009061E2 /* ViewController.swift */,
 				CB7DB57A1FA55911009061E2 /* Main.storyboard */,
+				CB7DB58F1FA81EDB009061E2 /* FoodCategoryViewController.swift */,
+				CB7DB58D1FA8171F009061E2 /* Logo.png */,
 				830DB6F21FA8026400B19899 /* HomeViewController.swift */,
+				CB7DB5911FA84631009061E2 /* PriceThresholdViewController.swift */,
 				830DB6F01FA7B77300B19899 /* LoginViewController.swift */,
 				830DB6ED1FA7AE9800B19899 /* AccountCreationViewController.swift */,
 				CB7DB5801FA55911009061E2 /* Assets.xcassets */,
@@ -99,6 +110,7 @@
 				CB7DB5851FA55911009061E2 /* Info.plist */,
 				CB7DB57D1FA55911009061E2 /* RestaurantRoullette.xcdatamodeld */,
 				830DB6EC1FA7A59A00B19899 /* GoogleService-Info.plist */,
+				CB7DB5951FA85BC0009061E2 /* RatingThresholdViewController.swift */,
 			);
 			path = RestaurantRoullette;
 			sourceTree = "<group>";
@@ -167,6 +179,7 @@
 			files = (
 				CB7DB5841FA55911009061E2 /* LaunchScreen.storyboard in Resources */,
 				830DB6EF1FA7B56E00B19899 /* GoogleService-Info.plist in Resources */,
+				CB7DB58E1FA8171F009061E2 /* Logo.png in Resources */,
 				CB7DB5811FA55911009061E2 /* Assets.xcassets in Resources */,
 				CB7DB57C1FA55911009061E2 /* Main.storyboard in Resources */,
 			);
@@ -239,11 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB7DB5961FA85BC0009061E2 /* RatingThresholdViewController.swift in Sources */,
 				CB7DB5791FA55911009061E2 /* ViewController.swift in Sources */,
 				CB7DB57F1FA55911009061E2 /* RestaurantRoullette.xcdatamodeld in Sources */,
 				CB7DB5771FA55911009061E2 /* AppDelegate.swift in Sources */,
 				830DB6F11FA7B77300B19899 /* LoginViewController.swift in Sources */,
+				CB7DB5921FA84631009061E2 /* PriceThresholdViewController.swift in Sources */,
 				830DB6EE1FA7AE9800B19899 /* AccountCreationViewController.swift in Sources */,
+				CB7DB5901FA81EDB009061E2 /* FoodCategoryViewController.swift in Sources */,
 				830DB6F31FA8026400B19899 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

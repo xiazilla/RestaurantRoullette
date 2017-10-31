@@ -41,7 +41,6 @@ class MoneyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.priceLabel.inputView = dropDown
         self.priceLabel.text = self.prices[row];
         self.dropDown.isHidden = true;
         view.endEditing(true)

@@ -28,7 +28,7 @@
         <!--View Controller-->
         <scene sceneID="Tkn-gz-9pP">
             <objects>
-                <viewController id="Qnw-34-Wg5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="Qnw-34-Wg5" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YKK-Uw-BKe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,7 +181,7 @@
         <!--Restaurant Roulette-->
         <scene sceneID="PZ8-uf-wOi">
             <objects>
-                <viewController storyboardIdentifier="Home" id="gP4-mO-LDB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="gP4-mO-LDB" customClass="HomeViewController" customModule="RestaurantRoullette" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Home" id="Czm-Fd-rny">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,11 +193,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-VS-OBe">
+                                <rect key="frame" x="16" y="79" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButton:" destination="gP4-mO-LDB" eventType="touchUpInside" id="tSw-gy-bOe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="SgL-OH-dPp"/>
                     </view>
                     <navigationItem key="navigationItem" title="Restaurant Roulette" id="hIt-eb-6xm"/>
+                    <connections>
+                        <outlet property="logoutLabel" destination="q6M-VS-OBe" id="67V-Ik-dOe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkl-10-Pop" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -19,7 +19,21 @@ class FoodCategoryViewController: UIViewController, UIPickerViewDelegate, UIPick
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        let toolBar = UIToolbar()
+//        toolBar.barStyle = UIBarStyle.default
+//        toolBar.isTranslucent = true
+//        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+//        toolBar.sizeToFit()
+//        
+//        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: nil)
+//        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+//        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: nil)
+//        
+//        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+//        toolBar.isUserInteractionEnabled = true
+//        
+//        TypeOfFood.inputView = dropDown;
+//        TypeOfFood.inputAccessoryView = toolBar;
         // Do any additional setup after loading the view.
     }
 

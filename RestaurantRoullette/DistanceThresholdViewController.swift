@@ -11,7 +11,7 @@ import UIKit
 class DistanceThresholdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     var data = [String] ( repeating: "", count: 5 );
-    var distances = ["0-5mi", "5-10mi", "5-15mi", "15-20mi", "20+mi"]
+    var distances = ["5", "10", "15", "20", "20+"]
     
     @IBOutlet weak var distanceLabel: UITextField!
     @IBOutlet weak var dropDown: UIPickerView!
@@ -52,7 +52,7 @@ class DistanceThresholdViewController: UIViewController, UIPickerViewDelegate, U
     
     @IBAction func next(_ sender: Any) {
         if(self.distanceLabel.text != "") {
-            data[0] = self.distanceLabel.text!;
+            data[4] = self.distanceLabel.text!;
         } else {
             let alert = UIAlertController(title: "Wait!", message: "You forgot to select what distance!", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
@@ -69,7 +69,6 @@ class DistanceThresholdViewController: UIViewController, UIPickerViewDelegate, U
             if let toViewController = segue.destination as? SpinnerViewController {
                 toViewController.data = self.data;
             }
-            
         }
     }
     

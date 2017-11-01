@@ -14,7 +14,7 @@ class MoneyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var dropDown: UIPickerView!
     
     var data = [String] ( repeating: "", count: 5 );
-    var prices = ["$", "$$", "$$$", "$$$$"]
+    var prices = ["Any", "$", "$-$$", "$$-$$$", "$$$-$$$$", "$$$$"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,7 @@ class MoneyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func next(_ sender: Any) {
         if(self.priceLabel.text != "") {
-            data[0] = self.priceLabel.text!;
+            data[3] = self.priceLabel.text!;
         } else {
             let alert = UIAlertController(title: "Wait!", message: "You forgot to select a price!", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
@@ -67,10 +67,10 @@ class MoneyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         navigationItem.backBarButtonItem = backItem;
         
         if segue.identifier == "savePrice" {
-            if let toViewController = segue.destination as? DistanceThresholdViewController {
+            if let toViewController = segue.destination as?
+                DistanceThresholdViewController {
                 toViewController.data = self.data;
             }
-            
         }
     }
     

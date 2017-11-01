@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var logoutLabel: UIButton!
     
+    let data = ["Any", "3", "5", "Any", "15"];
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +26,12 @@ class HomeViewController: UIViewController {
         let backItem = UIBarButtonItem();
         backItem.title = "Back";
         navigationItem.backBarButtonItem = backItem;
+        
+        if segue.identifier == "FeelingLucky" {
+            if let toViewController = segue.destination as? SpinnerViewController {
+                toViewController.data = self.data;
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

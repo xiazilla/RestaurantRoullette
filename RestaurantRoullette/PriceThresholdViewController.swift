@@ -56,6 +56,7 @@ class PriceThresholdViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.resignFirstResponder();
         if(textField == self.minField) {
             self.minPicker.isHidden = false;
         } else {

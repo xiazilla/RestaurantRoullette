@@ -47,6 +47,7 @@ class MoneyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.resignFirstResponder();
         self.dropDown.isHidden = false;
     }
     

@@ -47,6 +47,7 @@ class DistanceThresholdViewController: UIViewController, UIPickerViewDelegate, U
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.resignFirstResponder();
         self.dropDown.isHidden = false;
     }
     

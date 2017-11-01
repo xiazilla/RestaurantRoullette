@@ -48,6 +48,7 @@ class FoodCategoryViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.resignFirstResponder();
         self.dropDown.isHidden = false;
     }
     

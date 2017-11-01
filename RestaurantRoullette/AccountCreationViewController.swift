@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class AccountCreationViewController: UIViewController {
+class AccountCreationViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -21,7 +21,11 @@ class AccountCreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        username.delegate = self;
+        password.delegate = self;
+        firstName.delegate = self;
+        lastName.delegate = self;
+        
         // Do any additional setup after loading the view.
     }
 
@@ -29,8 +33,19 @@ class AccountCreationViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        username.resignFirstResponder();
+        password.resignFirstResponder();
+        firstName.resignFirstResponder();
+        lastName.resignFirstResponder();
+        return true;
+    }
+    
     /*
     // MARK: - Navigation
 

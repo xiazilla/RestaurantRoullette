@@ -82,6 +82,7 @@ class SpinnerViewController: UIViewController {
             
             let rand = arc4random_uniform(UInt32(restaurants.count))
             let restaurant = restaurants[Int(rand)]
+            print(restaurant)
             
             
 //            print(restaurants[2])

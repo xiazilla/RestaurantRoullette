@@ -30,7 +30,7 @@ class SpinnerViewController: UIViewController {
         ]
         
         
-        Alamofire.request("https://api.yelp.com/v3/businesses/search?latitude=30.2849&longitude=-97.7341&term=\(data[0])&radius=20000&price=\(data[3])&limit=10", headers: headers).responseJSON { response in
+        Alamofire.request("https://api.yelp.com/v3/businesses/search?latitude=30.2849&longitude=-97.7341&term=\(data[0])&radius=20000&price=\(data[3])&limit=25", headers: headers).responseJSON { response in
 //            print("Request: \(String(describing: response.request))")   // original url request
 //            print("Response: \(String(describing: response.response))") // http url response
 //            print("Result: \(response.result)")                         // response serialization result
@@ -79,23 +79,40 @@ class SpinnerViewController: UIViewController {
                     return
             }
             
+            var r:[[String: Any]] = []
+            for value in restaurants {
+                let low = Double(self.data[1])
+                let high = Double(self.data[2])
+                let currRating = value["rating"] as? Double
+                print("low " + String(describing: low))
+                print("high " + String(describing: high))
+                print("curr " + String(describing: currRating))
+                if currRating! >= low! && currRating! <= high! {
+                    r.append(value)
+                }
+            }
+            print(r)
             
-            let rand = arc4random_uniform(UInt32(restaurants.count))
-            let restaurant = restaurants[Int(rand)]
-            print(restaurant)
-            
+            if (r.count == 0) {
+                let alert = UIAlertController(title: "Wait!", message: "No results were found, hit new search and try again!", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            let rand = arc4random_uniform(UInt32(r.count))
+            let restaurant = r[Int(rand)]
             
 //            print(restaurants[2])
             self.foodCategory.text = restaurant["name"] as? String
             let blah = restaurant["location"] as? [String:Any]
-            print(blah!)
+            //print(blah!)
             let address = blah!["address1"] as? String
             let city = blah!["city"] as? String
             let state = blah!["state"] as? String
             let zip = blah!["zip_code"] as? String
             let temp = "\(address ?? "") \(city ?? ""), \(state ?? "") \(zip ?? "")"
             self.RatingHigh.text = temp
-            let rating = restaurant["rating"] as? Int ?? 0
+            let rating = restaurant["rating"] as? Double ?? 0
             self.RatingLow.text = "\(rating)"
             self.PriceRange.text = restaurant["price"] as? String;
             self.Radius.text = restaurant["url"] as? String;

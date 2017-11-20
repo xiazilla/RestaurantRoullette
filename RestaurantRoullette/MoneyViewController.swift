@@ -53,7 +53,31 @@ class MoneyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func next(_ sender: Any) {
         if(self.priceLabel.text != "") {
-            data[3] = self.priceLabel.text!;
+            switch(self.priceLabel.text!) {
+            case "$":
+                data[3] = "1"
+                break;
+            case "$-$$":
+                data[3] = "1,2"
+                break;
+            case "$$":
+                data[3] = "2"
+                break;
+            case "$$-$$$":
+                data[3] = "2,3"
+                break;
+            case "$$$":
+                data[3] = "3"
+                break;
+            case "$$$-$$$$":
+                data[3] = "3,4"
+                break;
+            case "$$$$":
+                data[3] = "4"
+                break;
+            default:
+                data[3] = "1,2,3,4"
+            }
         } else {
             let alert = UIAlertController(title: "Wait!", message: "You forgot to select a price!", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))

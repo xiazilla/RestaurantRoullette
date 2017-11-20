@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var logoutLabel: UIButton!
     
-    let data = ["Any", "3", "5", "Any", "15"];
+    let data = ["restaurants", "3", "5", "1,2,3,4", "20000"];
     
     override func viewDidLoad() {
         super.viewDidLoad()

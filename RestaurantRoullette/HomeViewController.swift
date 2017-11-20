@@ -34,6 +34,11 @@ class HomeViewController: UIViewController {
                 toViewController.data = self.data;
             }
         }
+        if segue.identifier == "setting" {
+            if let toViewController = segue.destination as? SettingsViewController {
+                toViewController.data = self.data
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

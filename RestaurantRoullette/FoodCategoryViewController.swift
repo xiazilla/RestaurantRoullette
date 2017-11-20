@@ -68,7 +68,11 @@ class FoodCategoryViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBAction func MoveOn(_ sender: Any) {
         if(self.TypeOfFood.text != "") {
-            data[0] = self.TypeOfFood.text!;
+            if (self.TypeOfFood.text == "Surprise Me! I Can't Decide.") {
+                data[0] = "restaurants"
+            } else {
+                data[0] = self.TypeOfFood.text!;
+            }
         } else {
             let alert = UIAlertController(title: "Wait!", message: "You forgot to select what type of food!", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))

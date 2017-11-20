@@ -19,7 +19,6 @@ class SpinnerViewController: UIViewController {
     @IBOutlet weak var Radius: UILabel!
     
     var ref:DatabaseReference?
-    
     var data = [String] ( repeating: "", count: 5 );
     
     override func viewDidLoad() {
@@ -30,14 +29,6 @@ class SpinnerViewController: UIViewController {
             "Accept": "application/json"
         ]
         
-//        let parameters: Parameters = [
-//            "latitude": 30.2849,
-//            "longitude": 97.7341,
-//            "term": data[0],
-//            "radius": 20000,
-//            "limit": 1
-//        ]
-        
         
         Alamofire.request("https://api.yelp.com/v3/businesses/search?latitude=30.2849&longitude=-97.7341&term=\(data[0])&radius=20000&price=\(data[3])&limit=10", headers: headers).responseJSON { response in
 //            print("Request: \(String(describing: response.request))")   // original url request
@@ -45,45 +36,73 @@ class SpinnerViewController: UIViewController {
 //            print("Result: \(response.result)")                         // response serialization result
             
             
-            struct Restaurant {
-                let id:String
-                struct Coordinates {
-                    let latitude:String
-                    let longitutde:String
-                }
-                struct Location {
-                    let display_address:String
-                }
-                let name:String
-                let phone:String
-                let price:String
-                let reviewURL:String
-                let rating:String
-            }
+//            struct Restaurant {
+//                let id:String
+//                struct Coordinates {
+//                    let latitude:String
+//                    let longitutde:String
+//                }
+//                struct Location {
+//                    let display_address:String
+//                }
+//                let name:String
+//                let phone:String
+//                let price:String
+//                let reviewURL:String
+//                let rating:String
+//            }
             
-            
+//            if let arr = jsonWithObjectRoot as? [Any] {
+//                console.log(a)
+//            }
 //            let jsonDecoder = JSONDecoder()
 //            let restaurants = try? jsonDecoder.decode(Array<Restaurant>.self, from: response.result.value as! Data)
 //
 //            dump(restaurants)
             
+//            if let json = response.result.value {
+//                if let restuarant = json["businesses"] as? NSDictionary {
+//                    print(restuarant)
+//                }
+//            }
             
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
+//            print(response.response?.statusCode)
+            
+            guard response.result.isSuccess else {
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                return
             }
             
-//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-//                print("Data: \(utf8Text)") // original server data as UTF8 string
-//            }
+            guard let value = response.result.value as? [String: Any],
+                let restaurants = value["businesses"] as? [[String: Any]] else {
+                    print("Error with permissions from yelp")
+                    return
+            }
+            
+            
+            let rand = arc4random_uniform(UInt32(restaurants.count))
+            let restaurant = restaurants[Int(rand)]
+            
+            
+//            print(restaurants[2])
+            self.foodCategory.text = restaurant["name"] as? String
+            let blah = restaurant["location"] as? [String:Any]
+            print(blah!)
+            let address = blah!["address1"] as? String
+            let city = blah!["city"] as? String
+            let state = blah!["state"] as? String
+            let zip = blah!["zip_code"] as? String
+            let temp = "\(address ?? "") \(city ?? ""), \(state ?? "") \(zip ?? "")"
+            self.RatingHigh.text = temp
+            let rating = restaurant["rating"] as? Int ?? 0
+            self.RatingLow.text = "\(rating)"
+            self.PriceRange.text = restaurant["price"] as? String;
+            self.Radius.text = restaurant["url"] as? String;
         }
 
-        
+
         // Do any additional setup after loading the view.
-        foodCategory.text = data[0];
-        RatingHigh.text = data[1];
-        RatingLow.text = data[2];
-        PriceRange.text = data[3];
-        Radius.text = data[4];
+//        foodCategory.text = data[0];
     }
 
     override func didReceiveMemoryWarning() {

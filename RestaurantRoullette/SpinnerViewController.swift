@@ -16,8 +16,9 @@ class SpinnerViewController: UIViewController {
     @IBOutlet weak var RatingHigh: UILabel!
     @IBOutlet weak var RatingLow: UILabel!
     @IBOutlet weak var PriceRange: UILabel!
-    @IBOutlet weak var Radius: UILabel!
+    @IBOutlet weak var phoneLabel: UIButton!
     var url = ""
+    var number = ""
     
     var ref:DatabaseReference?
     var data = [String] ( repeating: "", count: 5 );
@@ -26,7 +27,6 @@ class SpinnerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let headers: HTTPHeaders = [
             "Authorization": "bearer HMwDUbR0-Ma6T4uq-ngh_aN1Db0TdA2Exb-alzM3_9hJyIYo9SC-96s0ccv6qDWb_ZkM2q8LMg-5iL5s6CbqK6_okog1zGuLvtc-j2rbLS1tvDBxnBQ1qLv_KljdWXYx",
             "Accept": "application/json"
@@ -88,13 +88,11 @@ class SpinnerViewController: UIViewController {
                 let low = Double(self.data[1])
                 let high = Double(self.data[2])
                 let currRating = value["rating"] as? Double
-                print("low " + String(describing: low))
-                print("high " + String(describing: high))
-                print("curr " + String(describing: currRating))
                 if currRating! >= low! && currRating! <= high! {
                     r.append(value)
                 }
             }
+            
             print(r)
             
             if (r.count == 0) {
@@ -105,23 +103,24 @@ class SpinnerViewController: UIViewController {
             }
             let rand = arc4random_uniform(UInt32(r.count))
             let restaurant = r[Int(rand)]
-            
-//            print(restaurants[2])
             self.foodCategory.text = restaurant["name"] as? String
+            self.title = restaurant["name"] as? String
             let blah = restaurant["location"] as? [String:Any]
-            //print(blah!)
             let address = blah!["address1"] as? String
             let city = blah!["city"] as? String
             let state = blah!["state"] as? String
+            let phone = restaurant["display_phone"] as? String ?? "None"
             let zip = blah!["zip_code"] as? String
             let temp = "\(address ?? "") \(city ?? ""), \(state ?? "") \(zip ?? "")"
+            self.phoneLabel.setTitle("\(String(describing: phone))",  for: .normal)
+            let num = restaurant["phone"] as? String ?? "None"
+            self.number = "\(String(describing: num))"
             self.RatingHigh.text = temp
             let rating = restaurant["rating"] as? Double ?? 0
             self.RatingLow.text = "\(rating)"
             self.PriceRange.text = restaurant["price"] as? String;
             self.url = (restaurant["url"] as? String)!;
         }
-
 
         // Do any additional setup after loading the view.
 //        foodCategory.text = data[0];
@@ -139,6 +138,12 @@ class SpinnerViewController: UIViewController {
         
     }
     
+    @IBAction func phoneNumber(_ sender: Any) {
+        if let url = NSURL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url as URL) {
+            UIApplication.shared.open(url as URL)
+
+        }
+    }
     /*
     // MARK: - Navigation
 

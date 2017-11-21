@@ -17,9 +17,12 @@ class SpinnerViewController: UIViewController {
     @IBOutlet weak var RatingLow: UILabel!
     @IBOutlet weak var PriceRange: UILabel!
     @IBOutlet weak var Radius: UILabel!
+    var url = ""
     
     var ref:DatabaseReference?
     var data = [String] ( repeating: "", count: 5 );
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +32,9 @@ class SpinnerViewController: UIViewController {
             "Accept": "application/json"
         ]
         
+        let radius = Int(data[4])! * 1599;
         
-        Alamofire.request("https://api.yelp.com/v3/businesses/search?latitude=30.2849&longitude=-97.7341&term=\(data[0])&radius=20000&price=\(data[3])&limit=25", headers: headers).responseJSON { response in
+        Alamofire.request("https://api.yelp.com/v3/businesses/search?latitude=30.2849&longitude=-97.7341&term=\(data[0])&radius=\(radius)&price=\(data[3])&limit=50", headers: headers).responseJSON { response in
 //            print("Request: \(String(describing: response.request))")   // original url request
 //            print("Response: \(String(describing: response.response))") // http url response
 //            print("Result: \(response.result)")                         // response serialization result
@@ -115,7 +119,7 @@ class SpinnerViewController: UIViewController {
             let rating = restaurant["rating"] as? Double ?? 0
             self.RatingLow.text = "\(rating)"
             self.PriceRange.text = restaurant["price"] as? String;
-            self.Radius.text = restaurant["url"] as? String;
+            self.url = (restaurant["url"] as? String)!;
         }
 
 
@@ -128,7 +132,13 @@ class SpinnerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func openOnYelp(_ sender: Any) {
+        if let url = NSURL(string: self.url){
+            UIApplication.shared.openURL(url as URL)
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var logoutLabel: UIButton!
     @IBOutlet weak var settingLabel: UIBarButtonItem!
     
-    let data = ["restaurants", "3.0", "5.0", "1,2,3,4", "20000"];
+    let data = ["restaurants", "3.0", "5.0", "1,2,3,4", "10"];
     
     override func viewDidLoad() {
         super.viewDidLoad()

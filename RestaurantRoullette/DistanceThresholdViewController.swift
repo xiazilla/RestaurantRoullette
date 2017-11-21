@@ -11,7 +11,7 @@ import UIKit
 class DistanceThresholdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     var data = [String] ( repeating: "", count: 5 );
-    var distances = ["5", "10", "15", "20", "20+"]
+    var distances = ["5", "10", "15", "20", "25"]
     
     @IBOutlet weak var distanceLabel: UITextField!
     @IBOutlet weak var dropDown: UIPickerView!

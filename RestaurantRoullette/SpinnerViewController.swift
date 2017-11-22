@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import Alamofire
+import MapKit
 
 class SpinnerViewController: UIViewController {
 
@@ -17,13 +18,15 @@ class SpinnerViewController: UIViewController {
     @IBOutlet weak var RatingLow: UILabel!
     @IBOutlet weak var PriceRange: UILabel!
     @IBOutlet weak var phoneLabel: UIButton!
+    @IBOutlet weak var map: MKMapView!
     var url = ""
     var number = ""
     
     var ref:DatabaseReference?
     var data = [String] ( repeating: "", count: 5 );
     
-    
+    var longitude = 0.0
+    var latitude = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,44 +37,10 @@ class SpinnerViewController: UIViewController {
         
         let radius = Int(data[4])! * 1599;
         
+        
+        
         Alamofire.request("https://api.yelp.com/v3/businesses/search?latitude=30.2849&longitude=-97.7341&term=\(data[0])&radius=\(radius)&price=\(data[3])&limit=50", headers: headers).responseJSON { response in
-//            print("Request: \(String(describing: response.request))")   // original url request
-//            print("Response: \(String(describing: response.response))") // http url response
-//            print("Result: \(response.result)")                         // response serialization result
-            
-            
-//            struct Restaurant {
-//                let id:String
-//                struct Coordinates {
-//                    let latitude:String
-//                    let longitutde:String
-//                }
-//                struct Location {
-//                    let display_address:String
-//                }
-//                let name:String
-//                let phone:String
-//                let price:String
-//                let reviewURL:String
-//                let rating:String
-//            }
-            
-//            if let arr = jsonWithObjectRoot as? [Any] {
-//                console.log(a)
-//            }
-//            let jsonDecoder = JSONDecoder()
-//            let restaurants = try? jsonDecoder.decode(Array<Restaurant>.self, from: response.result.value as! Data)
-//
-//            dump(restaurants)
-            
-//            if let json = response.result.value {
-//                if let restuarant = json["businesses"] as? NSDictionary {
-//                    print(restuarant)
-//                }
-//            }
-            
-//            print(response.response?.statusCode)
-            
+
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                 return
@@ -105,12 +74,12 @@ class SpinnerViewController: UIViewController {
             let restaurant = r[Int(rand)]
             self.foodCategory.text = restaurant["name"] as? String
             self.title = restaurant["name"] as? String
-            let blah = restaurant["location"] as? [String:Any]
-            let address = blah!["address1"] as? String
-            let city = blah!["city"] as? String
-            let state = blah!["state"] as? String
+            let location = restaurant["location"] as? [String:Any]
+            let address = location!["address1"] as? String
+            let city = location!["city"] as? String
+            let state = location!["state"] as? String
             let phone = restaurant["display_phone"] as? String ?? "None"
-            let zip = blah!["zip_code"] as? String
+            let zip = location!["zip_code"] as? String
             let temp = "\(address ?? "") \(city ?? ""), \(state ?? "") \(zip ?? "")"
             self.phoneLabel.setTitle("\(String(describing: phone))",  for: .normal)
             let num = restaurant["phone"] as? String ?? "None"
@@ -120,8 +89,28 @@ class SpinnerViewController: UIViewController {
             self.RatingLow.text = "\(rating)"
             self.PriceRange.text = restaurant["price"] as? String;
             self.url = (restaurant["url"] as? String)!;
-        }
+            
+            // grab coordinates
+            let coordinates = restaurant["coordinates"] as? [String:Any]
+            let latitude = coordinates!["latitude"] as? Double ?? 0.0
+            let longitude = coordinates!["longitude"] as? Double ?? 0.0
+            
+            // use coordinates in map
+            let span:MKCoordinateSpan = MKCoordinateSpanMake(0.1, 0.1);
+            let loc:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+            let region:MKCoordinateRegion = MKCoordinateRegionMake(loc, span)
+            self.map.setRegion(region, animated: true)
 
+            let annotation = MKPointAnnotation()
+            
+            annotation.coordinate = loc
+            annotation.title = restaurant["name"] as? String
+            self.map.addAnnotation(annotation)
+            
+        }
+        
+
+        
         // Do any additional setup after loading the view.
 //        foodCategory.text = data[0];
     }

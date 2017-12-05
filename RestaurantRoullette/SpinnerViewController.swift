@@ -37,7 +37,7 @@ class SpinnerViewController: UIViewController {
         
         let radius = Int(data[4])! * 1599;
         
-        
+        print(data)
         
         Alamofire.request("https://api.yelp.com/v3/businesses/search?latitude=30.2849&longitude=-97.7341&term=\(data[0])&radius=\(radius)&price=\(data[3])&limit=50", headers: headers).responseJSON { response in
 
@@ -62,7 +62,7 @@ class SpinnerViewController: UIViewController {
                 }
             }
             
-            print(r)
+//            print(r)
             
             if (r.count == 0) {
                 let alert = UIAlertController(title: "Wait!", message: "No results were found, hit new search and try again!", preferredStyle: UIAlertControllerStyle.alert)
@@ -72,6 +72,7 @@ class SpinnerViewController: UIViewController {
             }
             let rand = arc4random_uniform(UInt32(r.count))
             let restaurant = r[Int(rand)]
+            print(restaurant)
             self.foodCategory.text = restaurant["name"] as? String
             self.title = restaurant["name"] as? String
             let location = restaurant["location"] as? [String:Any]
@@ -86,6 +87,8 @@ class SpinnerViewController: UIViewController {
             self.number = "\(String(describing: num))"
             self.RatingHigh.text = temp
             let rating = restaurant["rating"] as? Double ?? 0
+            print(restaurant["rating"])
+            print(rating)
             self.RatingLow.text = "\(rating)"
             self.PriceRange.text = restaurant["price"] as? String;
             self.url = (restaurant["url"] as? String)!;

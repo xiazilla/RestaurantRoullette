@@ -12,11 +12,11 @@ class PriceThresholdViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     var data = [String] ( repeating: "", count: 5 );
 
-    @IBOutlet weak var minField: UITextField!
     @IBOutlet weak var minPicker: UIPickerView!
-    @IBOutlet weak var maxField: UITextField!
     @IBOutlet weak var maxPicker: UIPickerView!
-    
+    @IBOutlet weak var maxField: UITextField!
+    @IBOutlet weak var minField: UITextField!
+
     var ratings = ["1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5" ]
     
     

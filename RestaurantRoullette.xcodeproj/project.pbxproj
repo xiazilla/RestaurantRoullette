@@ -26,6 +26,7 @@
 		CB7DB58E1FA8171F009061E2 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7DB58D1FA8171F009061E2 /* Logo.png */; };
 		CB7DB5901FA81EDB009061E2 /* FoodCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB58F1FA81EDB009061E2 /* FoodCategoryViewController.swift */; };
 		CB7DB5921FA84631009061E2 /* PriceThresholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB5911FA84631009061E2 /* PriceThresholdViewController.swift */; };
+		CBEB63DE1FD61E4000C9E00F /* Image.png in Resources */ = {isa = PBXBuildFile; fileRef = CBEB63DD1FD61E3F00C9E00F /* Image.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		CB7DB58D1FA8171F009061E2 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = ../../../../Desktop/Logo.png; sourceTree = "<group>"; };
 		CB7DB58F1FA81EDB009061E2 /* FoodCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryViewController.swift; sourceTree = "<group>"; };
 		CB7DB5911FA84631009061E2 /* PriceThresholdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceThresholdViewController.swift; sourceTree = "<group>"; };
+		CBEB63DD1FD61E3F00C9E00F /* Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Image.png; path = ../../../../Downloads/Image.png; sourceTree = "<group>"; };
 		DA5955302D996D01058674EB /* Pods_RestaurantRoullette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoullette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				CB7DB5761FA55911009061E2 /* AppDelegate.swift */,
 				CB7DB5781FA55911009061E2 /* ViewController.swift */,
 				CB7DB57A1FA55911009061E2 /* Main.storyboard */,
+				CBEB63DD1FD61E3F00C9E00F /* Image.png */,
 				83F44E131FC39CCE00CD4346 /* SettingsViewController.swift */,
 				CB6DC1B11FA951F7007B7AE8 /* WelcomeViewController.swift */,
 				831A498D1FA90D2B005AF481 /* MoneyViewController.swift */,
@@ -192,6 +195,7 @@
 				CB7DB5841FA55911009061E2 /* LaunchScreen.storyboard in Resources */,
 				830DB6EF1FA7B56E00B19899 /* GoogleService-Info.plist in Resources */,
 				CB7DB58E1FA8171F009061E2 /* Logo.png in Resources */,
+				CBEB63DE1FD61E4000C9E00F /* Image.png in Resources */,
 				CB7DB5811FA55911009061E2 /* Assets.xcassets in Resources */,
 				CB7DB57C1FA55911009061E2 /* Main.storyboard in Resources */,
 			);

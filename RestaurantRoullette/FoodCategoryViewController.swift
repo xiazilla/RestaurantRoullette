@@ -8,14 +8,12 @@
 
 import UIKit
 
-class FoodCategoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class FoodCategoryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var TypeOfFood: UITextField!
-    @IBOutlet weak var dropDown: UIPickerView!
+//    @IBOutlet weak var dropDown: UIPickerView!
     
     var data = [String] ( repeating: "", count: 5 );
-    var genres = ["Surprise Me! I Can't Decide.", "American", "Chinese", "Indian", "Japanese", "Mediterrean", "Korean", "Tex-Mex"]
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,34 +35,34 @@ class FoodCategoryViewController: UIViewController, UIPickerViewDelegate, UIPick
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1;
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return genres.count;
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let titleRow = genres[row];
-        return titleRow;
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.TypeOfFood.text = self.genres[row];
-        self.dropDown.isHidden = true;
-        view.endEditing(true)
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.resignFirstResponder();
-        self.dropDown.isHidden = false;
-    }
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1;
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return genres.count;
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        let titleRow = genres[row];
+//        return titleRow;
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        self.TypeOfFood.text = self.genres[row];
+//        self.dropDown.isHidden = true;
+//        view.endEditing(true)
+//    }
+//
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        textField.resignFirstResponder();
+//        self.dropDown.isHidden = false;
+//    }
     
     @IBAction func MoveOn(_ sender: Any) {
         if(self.TypeOfFood.text != "") {

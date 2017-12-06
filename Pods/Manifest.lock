@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
+  - Cosmos (12.0.1)
   - Firebase/Auth (4.4.0):
     - Firebase/Core
     - FirebaseAuth (= 4.3.0)
@@ -46,12 +47,14 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
+  - Cosmos (~> 12.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Cosmos: 4a9f57998a08788a1062c7b8eefbc62d2b590f39
   Firebase: 3e92884a63e8f76d107c43a67d2ab9071e1eda10
   FirebaseAnalytics: 722b53c7b32bfc7806b06e0093a2f5180d4f2c5a
   FirebaseAuth: e0087d479709b20b9613b804704a928d6eafb052
@@ -63,6 +66,6 @@ SPEC CHECKSUMS:
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 7e3866840b7b4d6722ab5aeaa37b102bf7bc0b0d
+PODFILE CHECKSUM: 8e8cdfe59fe6194e7f92fdbf18fccb2192a32564
 
 COCOAPODS: 1.3.1

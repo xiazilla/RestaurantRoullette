@@ -11,5 +11,6 @@ target 'RestaurantRoullette' do
   	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
 	pod 'Alamofire', '~> 4.5'
+	pod 'Cosmos', '~> 12.0'
 
 end

@@ -10,18 +10,21 @@ import UIKit
 import FirebaseDatabase
 import Alamofire
 import MapKit
+import Cosmos
 
 class SpinnerViewController: UIViewController {
 
     @IBOutlet weak var foodCategory: UILabel!
     @IBOutlet weak var RatingHigh: UILabel!
-    @IBOutlet weak var RatingLow: UILabel!
     @IBOutlet weak var PriceRange: UILabel!
     @IBOutlet weak var phoneLabel: UIButton!
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var RatingCosmos: CosmosView!
+    @IBOutlet weak var image: UIImageView!
+    
     var url = ""
     var number = ""
-    
+    var RatingLow = 0.0
     var ref:DatabaseReference?
     var data = [String] ( repeating: "", count: 5 );
     
@@ -30,6 +33,9 @@ class SpinnerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "y o u ' r e   w e l c o m e !"
+        
         let headers: HTTPHeaders = [
             "Authorization": "bearer HMwDUbR0-Ma6T4uq-ngh_aN1Db0TdA2Exb-alzM3_9hJyIYo9SC-96s0ccv6qDWb_ZkM2q8LMg-5iL5s6CbqK6_okog1zGuLvtc-j2rbLS1tvDBxnBQ1qLv_KljdWXYx",
             "Accept": "application/json"
@@ -37,9 +43,7 @@ class SpinnerViewController: UIViewController {
         
         let radius = Int(data[4])! * 1599;
         
-        print(data)
-        
-        Alamofire.request("https://api.yelp.com/v3/businesses/search?latitude=30.2849&longitude=-97.7341&term=\(data[0])&radius=\(radius)&price=\(data[3])&limit=50", headers: headers).responseJSON { response in
+        Alamofire.request("https://api.yelp.com/v3/businesses/search?latitude=30.2849&longitude=-97.7341&term=\(data[0])&radius=\(radius)&price=\(data[3])&limit=50&open_now=true", headers: headers).responseJSON { response in
 
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(String(describing: response.result.error))")
@@ -74,7 +78,6 @@ class SpinnerViewController: UIViewController {
             let restaurant = r[Int(rand)]
             print(restaurant)
             self.foodCategory.text = restaurant["name"] as? String
-            self.title = restaurant["name"] as? String
             let location = restaurant["location"] as? [String:Any]
             let address = location!["address1"] as? String
             let city = location!["city"] as? String
@@ -87,9 +90,15 @@ class SpinnerViewController: UIViewController {
             self.number = "\(String(describing: num))"
             self.RatingHigh.text = temp
             let rating = restaurant["rating"] as? Double ?? 0
-            print(restaurant["rating"])
-            print(rating)
-            self.RatingLow.text = "\(rating)"
+            let image_url = restaurant["image_url"] as? String ?? ""
+            let url = URL(string:image_url)
+            let data = try? Data(contentsOf: url!)
+            let img: UIImage = UIImage(data: data!)!
+            self.image.image = img
+            
+            
+            print(image_url)
+            self.RatingCosmos.rating = rating
             self.PriceRange.text = restaurant["price"] as? String;
             self.url = (restaurant["url"] as? String)!;
             
@@ -118,6 +127,12 @@ class SpinnerViewController: UIViewController {
 //        foodCategory.text = data[0];
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem();
+        backItem.title = "Back";
+        navigationItem.backBarButtonItem = backItem;
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -146,4 +161,8 @@ class SpinnerViewController: UIViewController {
     }
     */
 
+    @IBAction func Refresh(_ sender: Any) {
+
+        self.viewDidLoad()
+    }
 }

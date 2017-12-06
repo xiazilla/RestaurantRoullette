@@ -160,7 +160,13 @@ class SpinnerViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func AddToFavorites(_ sender: Any) {
+        
+        
+        
+        
+    }
+    
     @IBAction func Refresh(_ sender: Any) {
 
         self.viewDidLoad()

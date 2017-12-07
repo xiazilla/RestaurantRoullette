@@ -8,12 +8,14 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
+import Firebase
 import Alamofire
 import MapKit
 import Cosmos
 
 class SpinnerViewController: UIViewController {
-
+    
     @IBOutlet weak var foodCategory: UILabel!
     @IBOutlet weak var RatingHigh: UILabel!
     @IBOutlet weak var PriceRange: UILabel!
@@ -22,10 +24,14 @@ class SpinnerViewController: UIViewController {
     @IBOutlet weak var RatingCosmos: CosmosView!
     @IBOutlet weak var image: UIImageView!
     
+    let userID = Auth.auth().currentUser?.uid
+    
     var url = ""
     var number = ""
     var RatingLow = 0.0
     var ref:DatabaseReference?
+    var name = ""
+    
     var data = [String] ( repeating: "", count: 5 );
     
     var longitude = 0.0
@@ -33,7 +39,9 @@ class SpinnerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        ref = Database.database().reference()
+        
         self.title = "y o u ' r e   w e l c o m e !"
         
         let headers: HTTPHeaders = [
@@ -44,7 +52,7 @@ class SpinnerViewController: UIViewController {
         let radius = Int(data[4])! * 1599;
         
         Alamofire.request("https://api.yelp.com/v3/businesses/search?latitude=30.2849&longitude=-97.7341&term=\(data[0])&radius=\(radius)&price=\(data[3])&limit=50&open_now=true", headers: headers).responseJSON { response in
-
+            
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                 return
@@ -65,8 +73,6 @@ class SpinnerViewController: UIViewController {
                     r.append(value)
                 }
             }
-            
-//            print(r)
             
             if (r.count == 0) {
                 let alert = UIAlertController(title: "Wait!", message: "No results were found, hit new search and try again!", preferredStyle: UIAlertControllerStyle.alert)
@@ -112,21 +118,22 @@ class SpinnerViewController: UIViewController {
             let loc:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
             let region:MKCoordinateRegion = MKCoordinateRegionMake(loc, span)
             self.map.setRegion(region, animated: true)
-
+            
             let annotation = MKPointAnnotation()
             
             annotation.coordinate = loc
             annotation.title = restaurant["name"] as? String
+            self.name = (restaurant["name"] as? String)!
             self.map.addAnnotation(annotation)
             
         }
         
-
+        
         
         // Do any additional setup after loading the view.
-//        foodCategory.text = data[0];
+        //        foodCategory.text = data[0];
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backItem = UIBarButtonItem();
         backItem.title = "Back";
@@ -148,27 +155,28 @@ class SpinnerViewController: UIViewController {
     @IBAction func phoneNumber(_ sender: Any) {
         if let url = NSURL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url as URL) {
             UIApplication.shared.open(url as URL)
-
+            
         }
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     @IBAction func AddToFavorites(_ sender: Any) {
         
-        
-        
+        let uid = self.userID;
+        self.ref?.child("users").child(uid!).child("favorites").child(self.name).setValue(["name": self.name])
         
     }
     
     @IBAction func Refresh(_ sender: Any) {
-
+        
         self.viewDidLoad()
     }
 }
+

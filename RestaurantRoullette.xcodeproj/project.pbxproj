@@ -28,6 +28,7 @@
 		CB7DB5901FA81EDB009061E2 /* FoodCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB58F1FA81EDB009061E2 /* FoodCategoryViewController.swift */; };
 		CB7DB5921FA84631009061E2 /* PriceThresholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DB5911FA84631009061E2 /* PriceThresholdViewController.swift */; };
 		CBB06E0C1FD8C14D00CA4280 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB06E0B1FD8C14D00CA4280 /* FavoritesTableViewController.swift */; };
+		CBB06E0E1FD9EDF900CA4280 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB06E0D1FD9EDF900CA4280 /* FavoritesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		CB7DB58F1FA81EDB009061E2 /* FoodCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryViewController.swift; sourceTree = "<group>"; };
 		CB7DB5911FA84631009061E2 /* PriceThresholdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceThresholdViewController.swift; sourceTree = "<group>"; };
 		CBB06E0B1FD8C14D00CA4280 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		CBB06E0D1FD9EDF900CA4280 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		DA5955302D996D01058674EB /* Pods_RestaurantRoullette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoullette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				CB7DB5761FA55911009061E2 /* AppDelegate.swift */,
 				CB7DB5781FA55911009061E2 /* ViewController.swift */,
 				CB7DB57A1FA55911009061E2 /* Main.storyboard */,
+				CBB06E0D1FD9EDF900CA4280 /* FavoritesCell.swift */,
 				CBB06E0B1FD8C14D00CA4280 /* FavoritesTableViewController.swift */,
 				83AE97BB1FD74D4700B167D2 /* Image.png */,
 				83F44E131FC39CCE00CD4346 /* SettingsViewController.swift */,
@@ -283,6 +286,7 @@
 				CBB06E0C1FD8C14D00CA4280 /* FavoritesTableViewController.swift in Sources */,
 				830DB6F11FA7B77300B19899 /* LoginViewController.swift in Sources */,
 				831A49901FA9232A005AF481 /* DistanceThresholdViewController.swift in Sources */,
+				CBB06E0E1FD9EDF900CA4280 /* FavoritesCell.swift in Sources */,
 				CB7DB5921FA84631009061E2 /* PriceThresholdViewController.swift in Sources */,
 				830DB6EE1FA7AE9800B19899 /* AccountCreationViewController.swift in Sources */,
 				CB6DC1B21FA951F7007B7AE8 /* WelcomeViewController.swift in Sources */,

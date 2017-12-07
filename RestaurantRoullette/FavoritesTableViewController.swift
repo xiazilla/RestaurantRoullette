@@ -15,6 +15,12 @@ class FavoritesTableViewController: UITableViewController {
     var ref: DatabaseReference!
     var data = [String]()
     
+    @IBAction func OpenOnYelp(_ sender: Any) {
+        
+        
+        
+    }
+    
     override func viewDidLoad() {
         ref = Database.database().reference()
         self.getData()
@@ -30,20 +36,32 @@ class FavoritesTableViewController: UITableViewController {
 
     func getData() {
         let userID = Auth.auth().currentUser?.uid
-        ref.child("users").child(userID!).child("favorites").observeSingleEvent(of: .value, with: { (snapshot) in
-                var names = snapshot.value as! NSDictionary
-            for each in names {
-                self.data.append(each.value as! String)
-            }
-            print(self.data)
-            DispatchQueue.main.async() {
-                self.tableView.reloadData()
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            let users = snapshot;
+            if(users.hasChild(userID!)) {
+                self.ref.child("users").child(userID!).child("favorites").observeSingleEvent(of: .value, with: { (snapshot) in
+                    let names = snapshot.value as! NSDictionary
+                    for each in names {
+                        print(each)
+                        self.data.append(each.key as! String)
+                    }
+                    //            print(self.data)
+                    DispatchQueue.main.async() {
+                        self.tableView.reloadData()
+                    }
+                }) { (error) in
+                    print(error.localizedDescription)
+                    
+                }
+            } else {
+                let alert = UIAlertController(title: "Hmm", message: "You don't currently have any favorites! Go add some!", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-        
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,5 +87,37 @@ class FavoritesTableViewController: UITableViewController {
         cell.textLabel?.text = data[indexPath.row]
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            let alert = UIAlertController(title: "You sure?", message: "Remove \(self.data[indexPath.row]) from favorites?", preferredStyle: UIAlertControllerStyle.alert)
+            let alertAction = UIAlertAction( title : "Delete" ,
+                                             style : .destructive) { action in
+                                                let userID = Auth.auth().currentUser?.uid
+                                                print(self.data[indexPath.row]);
+                                                
+                                                self.ref.child("users").child(userID!).child("favorites").child(self.data[indexPath.row]).removeValue(completionBlock: { (err, ref) in
+                                                    if err != nil {
+                                                        print(err)
+                                                    } else {
+                                                        self.data = [String]()
+                                                        DispatchQueue.main.async() {
+                                                            self.viewDidLoad()
+                                                        }
+                                                    }})
 
+            }
+            alert.addAction(alertAction)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    func removeFav(name: String) {
+        print(name)
+    }
 }

@@ -103,7 +103,7 @@ class SpinnerViewController: UIViewController {
             self.image.image = img
             
             
-            print(image_url)
+            print(rating)
             self.RatingCosmos.rating = rating
             self.PriceRange.text = restaurant["price"] as? String;
             self.url = (restaurant["url"] as? String)!;
@@ -170,7 +170,11 @@ class SpinnerViewController: UIViewController {
     @IBAction func AddToFavorites(_ sender: Any) {
         
         let uid = self.userID;
-        self.ref?.child("users").child(uid!).child("favorites").childByAutoId().setValue(self.name)
+        self.ref?.child("users").child(uid!).child("favorites").child(self.name).setValue("true")
+        
+        let alert = UIAlertController(title: "Done!", message: "Added \(self.name) to favorites", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
         
     }
     

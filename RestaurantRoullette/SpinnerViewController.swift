@@ -170,7 +170,7 @@ class SpinnerViewController: UIViewController {
     @IBAction func AddToFavorites(_ sender: Any) {
         
         let uid = self.userID;
-        self.ref?.child("users").child(uid!).child("favorites").child(self.name).setValue(["name": self.name])
+        self.ref?.child("users").child(uid!).child("favorites").childByAutoId().setValue(self.name)
         
     }
     

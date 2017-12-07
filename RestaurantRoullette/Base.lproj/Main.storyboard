@@ -457,16 +457,16 @@
             </objects>
             <point key="canvasLocation" x="3376.8000000000002" y="17.541229385307346"/>
         </scene>
-        <!--Favorites Table View Controller-->
+        <!--Favorites-->
         <scene sceneID="0Mq-tf-z2X">
             <objects>
-                <tableViewController id="OKm-qy-N1f" customClass="FavoritesTableViewController" customModule="RestaurantRoullette" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Favorites" id="OKm-qy-N1f" customClass="FavoritesTableViewController" customModule="RestaurantRoullette" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VQc-60-9Jm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lm1-Ub-Rbe">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="lm1-Ub-Rbe">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lm1-Ub-Rbe" id="gVj-gb-Ejf">
